@@ -7,6 +7,9 @@ class DatabaseConnector {
 		if($this->mysqli->connect_error) {
 			throw new Exception($this->mysqli->connect_error);
 		}
+		if(!$this->mysqli->set_charset("utf8")) {
+			throw new Exception($this->mysqli->error);
+		}
 	}
 }
 ?>
